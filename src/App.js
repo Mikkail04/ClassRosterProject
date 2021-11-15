@@ -1,62 +1,24 @@
 import "./styles.css";
 
-function addPerson(
-  name,
-  pronouns,
-  school,
-  year,
-  color,
-  platform,
-  animal,
-  nickname
-) {
+let rosterInfo = [
+  ["Mikkail", "Allen", "blue"],
+  ["Derek", "Pitman", "green"]
+];
+
+function row(firstName, lastName, favColor) {
   return (
     <div class="row">
-      <div class="name">{name}</div>
-      <div class="pronouns">{pronouns}</div>
-      <div class="school">{school}</div>
-      <div class="year">{year}</div>
-      <div class="color">{color}</div>
-      <div class="platform">{platform}</div>
-      <div class="animal">{animal}</div>
-      <div class="nickname">{nickname}</div>
+      <span>{firstName}</span>
+      <span>{lastName}</span>
+      <span style={{ color: favColor }}>{favColor}</span>
     </div>
   );
 }
 
 export default function App() {
-  let Mikkail = addPerson(
-    "Mikkail Allen",
-    "He/His",
-    "WCHS",
-    "2022",
-    "Blue",
-    "Tiktok",
-    "Dogs",
-    "yes"
-  );
-  let Justin = addPerson(
-    "Justin Apupalo",
-    "He/His",
-    "NYIT",
-    "2025",
-    "Blue",
-    "Insta",
-    "Rooster",
-    "si"
-  );
-
-  let rows = [];
-  rows.push(Mikkail);
-  rows.push(Justin);
-
-  return (
-    <div className="App">
-      <h1>Class Roster Project</h1>
-      <div class="people"></div>
-      <div class="row">
-        <div>{rows}</div>
-      </div>
-    </div>
-  );
+  let elements = [];
+  for (let person of rosterInfo) {
+    elements.push(row(person[0], person[1]));
+  }
+  return <div className="App"></div>;
 }
