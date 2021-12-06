@@ -1,24 +1,35 @@
 import "./styles.css";
 
 let rosterInfo = [
-  ["Mikkail", "Allen", "blue"],
-  ["Derek", "Pitman", "green"]
+  { firstName: "Mikkail", lastName: "Allen", favColor: "blue" },
+  { firstName: "Derek", lastName: "Pitman", favColor: "green" }
 ];
+
+// let myData = myList.map(function(singleItem) {
+// row(singleItem.field, singleItem.otherField)
+//});
+let rosterRows = rosterInfo.map(intermediate);
+
+function intermediate(rosterInfo) {
+  // call row function assuming rosterInfo is an element of rosterInfo
+  return row(rosterInfo.firstName, rosterInfo.lastName, rosterInfo.favColor);
+}
 
 function row(firstName, lastName, favColor) {
   return (
-    <div class="row">
+    <div className="row">
       <span>{firstName}</span>
       <span>{lastName}</span>
-      <span style={{ color: favColor }}>{favColor}</span>
+      <span>{favColor}</span>
     </div>
   );
 }
 
 export default function App() {
-  let elements = [];
-  for (let person of rosterInfo) {
-    elements.push(row(person[0], person[1]));
-  }
-  return <div className="App"></div>;
+  return rosterRows;
+  // let elements = [];
+  // for (let person of rosterInfo) {
+  //   elements.push(row(person[0], person[1]));
+  // }
+  // return (<div className="App">{elements}</div>);
 }

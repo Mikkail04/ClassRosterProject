@@ -5,6 +5,12 @@
 .row {
   display: flex;
   flex-direction: row;
+  border: solid 1px blue;
+}
+span {
+  display: flex;
+  flex-direction: row;
+  border: solid 1px black;
 }
 .name {
   background-color: silver;
